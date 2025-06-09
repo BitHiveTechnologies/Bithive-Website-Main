@@ -3,7 +3,7 @@ import InteractiveHero from "@/components/blocks/hero-section-nexus";
 
 export function Hero() {
   return (
-    <div className="min-h-screen bg-background">
+    <div className="bg-background">
       <InteractiveHero />
 
       {/* Optional: Add other sections of your page below the hero */}

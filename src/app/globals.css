@@ -6,6 +6,7 @@
   --background: #000000;
   --foreground: #ffffff;
   --accent: #29D159;
+  --radius: 9999px;
 }
 
 @layer base {

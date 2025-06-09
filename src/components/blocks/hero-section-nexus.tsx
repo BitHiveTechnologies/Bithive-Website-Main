@@ -17,7 +17,8 @@ import {
     motion,
     AnimatePresence,
     useScroll,
-    useMotionValueEvent,
+    useMotionValue,
+    useTransform,
     type Transition,
     type VariantLabels,
     type Target,
@@ -47,6 +48,7 @@ interface RotatingTextProps
   initial?: boolean | Target | VariantLabels;
   animate?: boolean | VariantLabels | AnimationControls | TargetAndTransition;
   exit?: Target | VariantLabels;
+  heading?: string;
   animatePresenceMode?: "sync" | "wait";
   animatePresenceInitial?: boolean;
   rotationInterval?: number;
@@ -87,6 +89,7 @@ const RotatingText = forwardRef<RotatingTextRef, RotatingTextProps>(
   ) => {
     const [currentTextIndex, setCurrentTextIndex] = useState<number>(0);
 
+    
     const splitIntoCharacters = (text: string): string[] => {
       if (typeof Intl !== "undefined" && Intl.Segmenter) {
         try {
@@ -197,7 +200,7 @@ const RotatingText = forwardRef<RotatingTextRef, RotatingTextProps>(
         layout
       >
         <span className="sr-only">{texts[currentTextIndex]}</span>
-        <AnimatePresence mode={animatePresenceMode} initial={animatePresenceInitial}>
+        <AnimatePresence initial={animatePresenceInitial}>
           <motion.div
             key={currentTextIndex}
             className={cn(
@@ -360,9 +363,7 @@ const InteractiveHero: React.FC = () => {
    const [isScrolled, setIsScrolled] = useState<boolean>(false);
 
    const { scrollY } = useScroll();
-   useMotionValueEvent(scrollY, "change", (latest) => {
-       setIsScrolled(latest > 10);
-   });
+   const scrollYProgress = useTransform(scrollY, [0, 10], [0, 1]);
 
    const dotsRef = useRef<Dot[]>([]);
    const gridRef = useRef<Record<string, number[]>>({});
@@ -554,6 +555,16 @@ const InteractiveHero: React.FC = () => {
        return () => { document.body.style.overflow = 'unset'; };
    }, [isMobileMenuOpen]);
 
+   useEffect(() => {
+       const updateScroll = () => {
+           const currentScroll = window.scrollY;
+           setIsScrolled(currentScroll > 10);
+       };
+
+       window.addEventListener('scroll', updateScroll);
+       return () => window.removeEventListener('scroll', updateScroll);
+   }, []);
+
    const headerVariants: Variants = {
        top: {
         //    backgroundColor: "rgba(17, 17, 17, 0.8)",
@@ -608,7 +619,7 @@ const InteractiveHero: React.FC = () => {
     };
 
   return (
-    <div className="pt-[100px] relative bg-black text-gray-300 min-h-screen flex flex-col overflow-x-hidden">
+    <div className="relative bg-black text-gray-300 flex flex-col overflow-x-hidden">
         <canvas ref={canvasRef} className="absolute inset-0 z-0 pointer-events-none opacity-80" />
         <div className="absolute inset-0 z-1 pointer-events-none" style={{
             background: 'linear-gradient(to bottom, transparent 0%, black 90%), radial-gradient(ellipse at center, transparent 40%, black 95%)'
@@ -714,7 +725,7 @@ const InteractiveHero: React.FC = () => {
             </AnimatePresence>
         </motion.header> */}
 
-        <main className="flex-grow flex flex-col items-center justify-center text-center px-4 pt-8 pb-16 relative z-10">
+        <main className="flex flex-col items-center justify-center pt-20 text-center px-0 relative z-10">
 
      
 
@@ -725,11 +736,11 @@ const InteractiveHero: React.FC = () => {
                 className="hidden sm:block text-center text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold tracking-tight text-green-accent max-w-5xl lg:max-w-6xl"
             >
                 <div className="flex flex-col items-center justify-center w-full">
-                    <div className="flex items-center justify-center gap-2 w-full">
+                    <div className="flex items-baseline justify-center gap-2 w-full">
                         <span>We build</span>
-                        <span className="inline-block min-w-[160px] h-[1.2em] text-center align-middle">
+                        <span className="inline-flex min-w-[160px] h-[1.2em] text-center align-middle justify-center items-baseline">
                             <RotatingText
-                                texts={['websites', 'apps', 'tech', 'brands']}
+                                texts={['websites', 'apps', 'tech', 'buisness']}
                                 mainClassName="text-accent font-['Playfair_Display'] italic"
                                 staggerFrom={"last"}
                                 initial={{ y: "-100%", opacity: 0 }}
@@ -745,9 +756,9 @@ const InteractiveHero: React.FC = () => {
                         </span>
                         <span>that turn</span>
                     </div>
-                    <div className="flex items-center justify-center gap-2 mt-2 w-full">
+                    <div className="flex items-baseline justify-center gap-2 mt-2 w-full">
                         <span>visitors into</span>
-                        <span className="inline-block min-w-[220px] h-[1.2em] text-center align-middle">
+                        <span className="inline-flex min-w-[220px] h-[1.2em] text-center align-middle justify-center items-baseline">
                             <RotatingText
                                 texts={['paying customers', 'customers', 'leads', 'brand ']}
                                 mainClassName="text-accent font-['Playfair_Display'] italic"
@@ -784,8 +795,7 @@ const InteractiveHero: React.FC = () => {
                 animate="visible"
                 className="text-base sm:text-lg lg:text-xl text-gray-400 max-w-2xl mx-auto mb-8"
             >
-                Support your customers on Slack, Microsoft Teams, Discord and many more – and move from answering tickets to building genuine relationships.
-            </motion.p>
+High-converting websites designed with strategic copy and seamless development to attract ready-to-buy customers—helping brands worldwide turn visitors into loyal clients and drive growth.            </motion.p>
 
             <motion.div
                 variants={bannerVariants}
@@ -795,6 +805,8 @@ const InteractiveHero: React.FC = () => {
             >
                 <ShinyText text="✨ Get your MVP built in 2 weeks" className="bg-[#1a1a1a] border border-gray-700 text-[#0CF2A0] px-4 py-1 rounded-full text-xs sm:text-sm font-medium cursor-pointer hover:border-[#0CF2A0]/50 transition-colors" />
             </motion.div>
+
+            <br />
             <motion.form
                 variants={formVariants}
                 initial="hidden"
@@ -807,29 +819,30 @@ const InteractiveHero: React.FC = () => {
                     placeholder="Your work email"
                     required
                     aria-label="Work Email"
-                    className="flex-grow w-full sm:w-auto px-4 py-2 rounded-md bg-[#2a2a2a] border border-gray-700 text-white placeholder-gray-500 focus:outline-none focus:ring-2 focus:ring-[#0CF2A0] focus:border-transparent transition-all"
-                />
+                    className="flex-grow w-full sm:w-auto px-4 py-2 rounded-lg bg-slate-800 border border-gray-700 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-accent focus:border-accent transition-all"
+                    />
                 <motion.button
                     type="submit"
-                    className="w-full sm:w-auto bg-[#0CF2A0] text-[#111111] px-5 py-2 rounded-md text-sm font-semibold hover:bg-opacity-90 transition-colors duration-200 whitespace-nowrap shadow-sm hover:shadow-md flex-shrink-0"
+                    className="w-full sm:w-auto bg-accent text-black px-5 py-2 rounded-lg text-sm font-semibold hover:bg-opacity-90 transition-colors duration-200 whitespace-nowrap shadow-sm hover:shadow-md flex-shrink-0"
                     whileHover={{ scale: 1.03, y: -1 }}
                     whileTap={{ scale: 0.97 }}
-                    transition={{ type: "spring", stiffness: 400, damping: 15 }}
+                    transition={{ type: 'spring', stiffness: 400, damping: 15 }}
                 >
-                    See Nexus in action
+                    Get Your Website Built
                 </motion.button>
             </motion.form>
-
-            <motion.p
+       
+            
+{/* 
+          <motion.p
                 variants={trialTextVariants}
                 initial="hidden"
                 animate="visible"
                 className="text-xs text-gray-500 mb-10"
             >
                 Free 14 day trial
-            </motion.p>
-
-            <motion.div
+            </motion.p> 
+       <motion.div
                 variants={worksWithVariants}
                 initial="hidden"
                 animate="visible"
@@ -843,9 +856,9 @@ const InteractiveHero: React.FC = () => {
                     <span className="flex items-center whitespace-nowrap">Email  <svg width="16" height="14" viewBox="0 0 16 14" fill="none"><path fillRule="evenodd" clipRule="evenodd" d="M0.5 7.00012C0.5 6.58591 0.835786 6.25012 1.25 6.25012H5.3C5.55076 6.25012 5.78494 6.37545 5.92404 6.5841L7.05139 8.27512H8.94861L10.076 6.5841C10.2151 6.37545 10.4492 6.25012 10.7 6.25012H14.75C15.1642 6.25012 15.5 6.58591 15.5 7.00012C15.5 7.41434 15.1642 7.75012 14.75 7.75012H11.1014L9.97404 9.44115C9.83494 9.6498 9.60076 9.77512 9.35 9.77512H6.65C6.39923 9.77512 6.16506 9.6498 6.02596 9.44115L4.89861 7.75012H1.25C0.835786 7.75012 0.5 7.41434 0.5 7.00012Z" fill="#9898A9"></path><path fillRule="evenodd" clipRule="evenodd" d="M4.787 0.849976L11.213 0.849976C11.6037 0.850183 11.987 0.959373 12.319 1.16527C12.6506 1.37092 12.9184 1.66491 13.0923 2.01424C13.0925 2.01465 13.0927 2.01506 13.0929 2.01548L15.4206 6.66418C15.4728 6.76842 15.5 6.88354 15.5 7.00012V11.05C15.5 11.6069 15.2787 12.1411 14.8849 12.5349C14.4911 12.9287 13.957 13.15 13.4 13.15H2.6C2.04304 13.15 1.5089 12.9287 1.11508 12.5349C0.721249 12.1411 0.5 11.6069 0.5 11.05V7.00012C0.5 6.88354 0.527177 6.76842 0.579374 6.66418L2.9071 2.01548C2.90728 2.01511 2.90747 2.01474 2.90765 2.01437C3.08152 1.66498 3.34932 1.37095 3.681 1.16527C4.01303 0.959373 4.39631 0.850183 4.787 0.849976ZM4.78726 2.34998C4.67568 2.35006 4.56634 2.38126 4.47151 2.44006C4.37665 2.49889 4.30007 2.58301 4.2504 2.68298L4.24938 2.68503L2 7.17726V11.05C2 11.2091 2.06321 11.3617 2.17574 11.4742C2.28826 11.5868 2.44087 11.65 2.6 11.65H13.4C13.5591 11.65 13.7117 11.5868 13.8243 11.4742C13.9368 11.3617 14 11.2091 14 11.05V7.17726L11.7506 2.68503L11.7496 2.68298C11.6999 2.58301 11.6234 2.49889 11.5285 2.44006C11.4337 2.38126 11.3243 2.35006 11.2127 2.34998H4.78726Z" fill="#9898A9"></path></svg></span>
                     <span className="flex items-center whitespace-nowrap">AND MORE</span>
                 </div>
-            </motion.div>
+            </motion.div>  */}
 
-            <motion.div
+       {/* <motion.div
                 variants={imageVariants}
                 initial="hidden"
                 animate="visible"
@@ -859,7 +872,7 @@ const InteractiveHero: React.FC = () => {
                     className="w-full h-auto object-contain rounded-lg shadow-xl border border-gray-700/50"
                     loading="lazy"
                 />
-            </motion.div>
+            </motion.div> */}
         </main>
 
     </div>
