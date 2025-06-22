@@ -30,7 +30,7 @@ export const TestimonialsColumn = (props: {
           <React.Fragment key={index}>
             {props.testimonials.map(({ text, image, name, role }, i) => (
               <div
-                className="relative cursor-pointer overflow-hidden rounded-xl border p-4 mb-4 bg-[#0d0d0d] border-white/10 hover:bg-[#1a1a1a] transition-colors duration-300 max-w-xs w-full"
+                className="relative cursor-pointer overflow-hidden rounded-xl border p-4 mb-4 bg-[#0d0d0d] border-white/10 hover:bg-[#1a1a1a] transition-colors duration-300"
                 key={`${index}-${i}`}
               >
                 <div className="flex items-center gap-3 mb-3">

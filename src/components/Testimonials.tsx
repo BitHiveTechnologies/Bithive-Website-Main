@@ -5,58 +5,58 @@ import { motion } from "framer-motion";
 
 const testimonials = [
   {
-    text: "This ERP revolutionized our operations, streamlining finance and inventory. The cloud-based platform keeps us productive, even remotely.",
+    text: "Bithive completely transformed our online presence. Their team delivered a high-converting website that not only looks stunning but also drives significant traffic and leads. Our sales have increased by 40% since launch!",
     image: "https://randomuser.me/api/portraits/women/1.jpg",
-    name: "Briana Patton",
-    role: "Operations Manager",
+    name: "Sarah Johnson",
+    role: "Marketing Director, Prestige",
   },
   {
-    text: "Implementing this ERP was smooth and quick. The customizable, user-friendly interface made team training effortless.",
+    text: "The custom automation solution Bithive developed for us has been a game-changer. It streamlined our workflow, saving us over 20 hours a week and reducing manual errors. Their expertise is unmatched.",
     image: "https://randomuser.me/api/portraits/men/2.jpg",
-    name: "Bilal Ahmed",
-    role: "IT Manager",
+    name: "Michael Chen",
+    role: "CEO, Ninja",
   },
   {
-    text: "The support team is exceptional, guiding us through setup and providing ongoing assistance, ensuring our satisfaction.",
+    text: "Working with Bithive was a breeze. They understood our vision perfectly and built a website that exceeded our expectations. The user experience is seamless, and we've received nothing but positive feedback from our customers.",
     image: "https://randomuser.me/api/portraits/women/3.jpg",
-    name: "Saman Malik",
-    role: "Customer Support Lead",
+    name: "Jessica Martinez",
+    role: "Founder, VeeZee",
   },
   {
-    text: "This ERP's seamless integration enhanced our business operations and efficiency. Highly recommend for its intuitive interface.",
+    text: "Bithive's web development and automation services have been instrumental in our growth. They created a robust e-commerce platform that handles high traffic with ease and automated our inventory management, saving us time and money.",
     image: "https://randomuser.me/api/portraits/men/4.jpg",
-    name: "Omar Raza",
-    role: "CEO",
+    name: "David Lee",
+    role: "COO, Wassup Media",
   },
   {
-    text: "Its robust features and quick support have transformed our workflow, making us significantly more efficient.",
+    text: "The team at Bithive is incredibly talented and professional. They delivered a beautiful, fast, and responsive website that has significantly improved our brand image. I highly recommend their services to anyone looking for top-notch web development.",
     image: "https://randomuser.me/api/portraits/women/5.jpg",
-    name: "Zainab Hussain",
-    role: "Project Manager",
+    name: "Emily Rodriguez",
+    role: "Owner, Spain Academy",
   },
   {
-    text: "The smooth implementation exceeded expectations. It streamlined processes, improving overall business performance.",
-    image: "https://randomuser.me/api/portraits/women/6.jpg",
-    name: "Aliza Khan",
-    role: "Business Analyst",
+    text: "We were struggling with manual, repetitive tasks until Bithive stepped in. Their automation solution has freed up our team to focus on strategic initiatives, boosting productivity and morale. It's one of the best investments we've made.",
+    image: "https://randomuser.me/api/portraits/men/6.jpg",
+    name: "Chris Thompson",
+    role: "Operations Manager, Khushiva",
   },
   {
-    text: "Our business functions improved with a user-friendly design and positive customer feedback.",
-    image: "https://randomuser.me/api/portraits/men/7.jpg",
-    name: "Farhan Siddiqui",
-    role: "Marketing Director",
+    text: "From start to finish, the process of building our new website with Bithive was seamless. They were communicative, attentive to detail, and delivered a final product that has driven a 25% increase in conversions. We couldn't be happier.",
+    image: "https://randomuser.me/api/portraits/women/7.jpg",
+    name: "Laura Davis",
+    role: "Marketing Manager, Prestige",
   },
   {
-    text: "They delivered a solution that exceeded expectations, understanding our needs and enhancing our operations.",
-    image: "https://randomuser.me/api/portraits/women/8.jpg",
-    name: "Sana Sheikh",
-    role: "Sales Manager",
+    text: "Bithive's automation expertise has had a huge impact on our business. They helped us automate our lead nurturing process, resulting in a 50% increase in qualified leads and a shorter sales cycle. Their team is simply brilliant.",
+    image: "https://randomuser.me/api/portraits/men/8.jpg",
+    name: "James Wilson",
+    role: "Sales Director, Ninja",
   },
   {
-    text: "Using this ERP, our online presence and conversions significantly improved, boosting business performance.",
-    image: "https://randomuser.me/api/portraits/men/9.jpg",
-    name: "Hassan Ali",
-    role: "E-commerce Manager",
+    text: "The website Bithive created for us is not only visually stunning but also incredibly functional. It has elevated our brand and provided a much-improved experience for our users. Their team is a pleasure to work with.",
+    image: "https://randomuser.me/api/portraits/women/9.jpg",
+    name: "Olivia Garcia",
+    role: "Founder, VeeZee",
   },
 ];
 
@@ -73,21 +73,21 @@ const Testimonials = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
           viewport={{ once: true }}
-          className="flex flex-col items-start justify-center max-w-[540px]"
+          className="flex flex-col items-center justify-center max-w-[540px] mx-auto text-center"
         >
-          <div className="flex justify-start px-8" >
-            <div className="border py-1 px-4 rounded-lg">Testimonials</div>
+          <div className="w-full py-12 flex flex-col items-center lg:items-center text-center lg:text-center text-white" >
+            <div className="mt-4 text-2xl text-white">Testimonials</div>
+            <h3 className="scroll-m-20 text-4xl font-semibold tracking-tighter lg:text-6xl text-green-accent mb-8">
+            Hear from our clients          </h3>
           </div>
 
-          <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-bold tracking-tighter mt-5 text-green-500 px-8">
-            What our users say
-          </h2>
-          <p className="text-left mt-5 opacity-75 px-8 mb-8">
+        
+          <p className="text-center mt-5 opacity-75 px-8 mb-8">
             See what our customers have to say about us.
           </p>
         </motion.div>
 
-        <div className="flex justify-center gap-6 mt-10 mx-auto max-w-4xl [mask-image:linear-gradient(to_bottom,transparent,black_25%,black_75%,transparent)] max-h-[740px] overflow-hidden">
+        <div className="flex justify-center gap-6 mt-10 mx-auto max-w-7xl [mask-image:linear-gradient(to_bottom,transparent,black_25%,black_75%,transparent)] max-h-[740px] overflow-hidden">
           <TestimonialsColumn testimonials={firstColumn} duration={15} />
           <TestimonialsColumn testimonials={secondColumn} className="hidden md:block" duration={19} />
           <TestimonialsColumn testimonials={thirdColumn} className="hidden lg:block" duration={17} />

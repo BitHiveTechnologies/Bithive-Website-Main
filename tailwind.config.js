@@ -11,6 +11,7 @@ module.exports = {
         background: "#000000",
         foreground: "#ffffff",
         accent: "#29D159",
+        "green-accent": "#29D159",
         border: "var(--border)",
         input: "var(--input)",
         ring: "var(--ring)",

@@ -1,7 +1,7 @@
 import React from "react";
 import { FeaturesSectionWithHoverEffects } from "@/components/blocks/feature-section-with-hover-effects";
 
-function feature() {
+function Feature() {
   return (
     <div className="min-h-screen w-full">
       <div className="absolute top-0 left-0 w-full">
@@ -11,4 +11,4 @@ function feature() {
   );
 }
 
-export { feature };
+export { Feature };
