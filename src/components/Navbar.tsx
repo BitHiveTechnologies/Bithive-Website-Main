@@ -1,6 +1,5 @@
 'use client';
 
-import { useEffect, useState } from "react";
 import NavHeader from "@/components/blocks/nav-header"
 
 function Navbar() {

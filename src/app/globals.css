@@ -41,9 +41,23 @@ main {
   padding-top: 5rem;
 }
 
+@media (min-width: 640px) {
+  main {
+    padding-top: 6rem;
+  }
+}
+
 /* Smooth scrolling */
 html {
   scroll-behavior: smooth;
+}
+
+/* Improve touch targets on mobile */
+@media (max-width: 640px) {
+  button, a {
+    min-height: 44px;
+    min-width: 44px;
+  }
 }
 
 @layer components {

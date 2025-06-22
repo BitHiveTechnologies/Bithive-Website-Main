@@ -31,23 +31,23 @@ function SingleAccordionDemo() {
   ]
 
   return (
-    <div className="py-20 max-w-7xl mx-auto">
+    <div className="py-12 sm:py-16 lg:py-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
       <div>
-        <p className="mt-4 text-2xl text-white"> Questions?</p>
-      <h2 className="scroll-m-20 text-4xl font-semibold tracking-tighter lg:text-6xl text-green-accent mb-8 text-green-accent">We got answers!</h2>
+        <p className="mt-4 text-xl sm:text-2xl text-white"> Questions?</p>
+      <h2 className="scroll-m-20 text-3xl sm:text-4xl font-semibold tracking-tighter lg:text-6xl text-green-accent mb-6 sm:mb-8 text-green-accent">We got answers!</h2>
       </div>
     
-      <Accordion type="single" collapsible className="space-y-3">
+      <Accordion type="single" collapsible className="space-y-2 sm:space-y-3">
         {accordions.map(({ title, text }) => (
           <AccordionItem 
             key={title} 
             value={title} 
             className="border border-[#333] rounded-lg overflow-hidden bg-[#111] data-[state=open]:border-green-accent"
           >
-            <AccordionTrigger className="px-5 py-3 text-base font-normal hover:no-underline hover:text-green-accent">
+            <AccordionTrigger className="px-4 sm:px-5 py-3 text-sm sm:text-base font-normal hover:no-underline hover:text-green-accent">
               {title}
             </AccordionTrigger>
-            <AccordionContent className="px-5 pb-3 text-sm text-neutral-400">
+            <AccordionContent className="px-4 sm:px-5 pb-3 text-xs sm:text-sm text-neutral-400">
               {text}
             </AccordionContent>
           </AccordionItem>

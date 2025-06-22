@@ -119,19 +119,19 @@ const tiers = [
 
 export default function PowerPackage() {
   return (
-    <section className="bg-black text-white min-h-screen w-full">
+    <section className="bg-black text-white w-full">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
         viewport={{ once: true }}
-        className="flex flex-col items-center justify-center py-20 px-8"
+        className="flex flex-col items-center justify-center py-12 sm:py-16 lg:py-20 px-4 sm:px-6 lg:px-8"
       >
-        <div className="text-center mb-16">
-          <h1 className="text-5xl md:text-7xl font-extrabold text-green-500 leading-tight mb-4">
+        <div className="text-center mb-12 sm:mb-16">
+          <h1 className="text-4xl sm:text-5xl md:text-7xl font-extrabold text-green-500 leading-tight mb-4">
             our services
           </h1>
-          <p className="text-xl md:text-3xl text-white">
+          <p className="text-lg sm:text-xl md:text-3xl text-white">
             we build websites & automate your business
           </p>
         </div>

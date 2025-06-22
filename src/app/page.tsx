@@ -17,28 +17,24 @@ export default function Home() {
       <Trsustedby />
       </div>
 
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
-      <br />
+      <div className="py-8 sm:py-12 lg:py-16">
       <ProjectGrid />
+      </div>
+      
+      <div className="py-8 sm:py-12 lg:py-16">
       <Testimonials />
+      </div>
 
-            <div className="pt-20">
+      <div className="pt-12 sm:pt-16 lg:pt-20">
         <BenefitsSection />
         <BookingSection />
         <PowerPackage />
-        <div className="my-10">
+        <div className="my-8 sm:my-10">
           <SingleAccordionDemo />
         </div>
         <CtaSection />
       </div>
 
       </>
-
   );
 }

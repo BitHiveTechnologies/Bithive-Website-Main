@@ -56,7 +56,7 @@ function PricingSection({ tiers, className }: PricingSectionProps) {
       )}
     >
       <div className="w-full max-w-5xl mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8">
           {tiers.map((tier) => (
             <div
               key={tier.name}
@@ -66,25 +66,25 @@ function PricingSection({ tiers, className }: PricingSectionProps) {
                 "flex flex-col",
                 "bg-black",
                 "border border-green-500/30 shadow-md",
-                "p-8",
+                "p-6 sm:p-8",
               )}
             >
               <div className="flex-1">
-                <h3 className="text-3xl font-bold text-white mb-2">
+                <h3 className="text-xl sm:text-2xl md:text-3xl font-bold text-white mb-2">
                   {tier.name}
                 </h3>
 
-                <p className="mb-8 text-lg text-gray-400">
+                <p className="mb-6 sm:mb-8 text-base sm:text-lg text-gray-400">
                   {tier.description}
                 </p>
 
-                <div className="space-y-4 mb-8">
+                <div className="space-y-3 sm:space-y-4 mb-6 sm:mb-8">
                   {tier.features.map((feature) => (
-                    <div key={feature.name} className="flex gap-4 items-center">
-                      <div className="text-green-500">
-                        <CheckIcon className="w-5 h-5" />
+                    <div key={feature.name} className="flex gap-3 sm:gap-4 items-start">
+                      <div className="text-green-500 mt-0.5">
+                        <CheckIcon className="w-4 h-4 sm:w-5 sm:h-5" />
                       </div>
-                      <div className="text-base font-medium text-white">
+                      <div className="text-sm sm:text-base font-medium text-white">
                         {feature.name}
                       </div>
                     </div>
@@ -94,12 +94,12 @@ function PricingSection({ tiers, className }: PricingSectionProps) {
 
               <div className="mt-auto">
                 {tier.bottomText && (
-                  <p className="mb-6 text-base text-gray-400">
+                  <p className="mb-4 sm:mb-6 text-sm sm:text-base text-gray-400">
                     {tier.bottomText}
                   </p>
                 )}
                 <Link
-                  href="https://cal.com/saurabh-singh-cg9fek/testing"
+                  href="https://cal.com/saurabh-singh-cg9fek/demo"
                   passHref
                   legacyBehavior
                 >

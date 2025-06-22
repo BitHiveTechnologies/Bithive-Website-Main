@@ -66,7 +66,7 @@ const thirdColumn = testimonials.slice(6, 9);
 
 const Testimonials = () => {
   return (
-    <section className="bg-background my-20 relative">
+    <section className="bg-background my-12 sm:my-16 lg:my-20 relative px-4 sm:px-6 lg:px-8">
       <div className="w-full z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -75,21 +75,21 @@ const Testimonials = () => {
           viewport={{ once: true }}
           className="flex flex-col items-center justify-center max-w-[540px] mx-auto text-center"
         >
-          <div className="w-full py-12 flex flex-col items-center lg:items-center text-center lg:text-center text-white" >
-            <div className="mt-4 text-2xl text-white">Testimonials</div>
-            <h3 className="scroll-m-20 text-4xl font-semibold tracking-tighter lg:text-6xl text-green-accent mb-8">
+          <div className="w-full py-8 sm:py-12 flex flex-col items-center lg:items-center text-center lg:text-center text-white" >
+            <div className="mt-4 text-xl sm:text-2xl text-white">Testimonials</div>
+            <h3 className="scroll-m-20 text-3xl sm:text-4xl font-semibold tracking-tighter lg:text-6xl text-green-accent mb-6 sm:mb-8">
             Hear from our clients          </h3>
           </div>
 
         
-          <p className="text-center mt-5 opacity-75 px-8 mb-8">
+          <p className="text-center mt-3 sm:mt-5 opacity-75 px-4 sm:px-8 mb-6 sm:mb-8 text-sm sm:text-base">
             See what our customers have to say about us.
           </p>
         </motion.div>
 
-        <div className="flex justify-center gap-6 mt-10 mx-auto max-w-7xl [mask-image:linear-gradient(to_bottom,transparent,black_25%,black_75%,transparent)] max-h-[740px] overflow-hidden">
+        <div className="flex justify-center gap-4 sm:gap-6 mt-8 sm:mt-10 mx-auto max-w-7xl [mask-image:linear-gradient(to_bottom,transparent,black_25%,black_75%,transparent)] max-h-[600px] sm:max-h-[740px] overflow-hidden">
           <TestimonialsColumn testimonials={firstColumn} duration={15} />
-          <TestimonialsColumn testimonials={secondColumn} className="hidden md:block" duration={19} />
+          <TestimonialsColumn testimonials={secondColumn} className="hidden sm:block" duration={19} />
           <TestimonialsColumn testimonials={thirdColumn} className="hidden lg:block" duration={17} />
         </div>
       </div>

@@ -5,31 +5,32 @@ import Link from 'next/link';
 
 export function Footer() {
   return (
-    <footer className="bg-background text-white py-8 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between space-y-6 md:space-y-0">
-        <div className="flex items-center space-x-3">
+    <footer className="bg-background text-white py-6 sm:py-8 px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between space-y-4 sm:space-y-6 md:space-y-0">
+        <div className="flex items-center space-x-2 sm:space-x-3">
           <Image
             src="/logos/logo.webp"
             alt="Bithive Logo"
             width={120}
             height={30}
-            className="h-8 w-auto"
+            className="h-6 w-auto sm:h-8"
           />
           <h3
-            className="text-lg font-bold text-white"
+            className="text-base sm:text-lg font-bold text-white"
             style={{ fontFamily: 'Michroma, sans-serif' }}
           >
             Bithive Technology
           </h3>
         </div>
 
-        <div className="flex items-center space-x-5">
+        <div className="flex items-center space-x-4 sm:space-x-5">
           <Link
             href="https://instagram.com/vetcha.roopesh"
-            className="text-white hover:text-green-accent transition"
+            className="text-white hover:text-green-accent transition p-1"
+            aria-label="Instagram"
           >
             <svg
-              className="h-6 w-6"
+              className="h-5 w-5 sm:h-6 sm:w-6"
               fill="currentColor"
               viewBox="0 0 24 24"
               aria-hidden="true"
@@ -44,10 +45,11 @@ export function Footer() {
 
           <Link
             href="https://www.linkedin.com/company/bithive-technology"
-            className="text-white hover:text-green-accent transition"
+            className="text-white hover:text-green-accent transition p-1"
+            aria-label="LinkedIn"
           >
             <svg
-              className="h-6 w-6"
+              className="h-5 w-5 sm:h-6 sm:w-6"
               fill="currentColor"
               viewBox="0 0 24 24"
               aria-hidden="true"
@@ -58,10 +60,11 @@ export function Footer() {
 
           <Link
             href="mailto:Buzz@bithive.in"
-            className="text-white hover:text-green-accent transition"
+            className="text-white hover:text-green-accent transition p-1"
+            aria-label="Email"
           >
             <svg
-              className="h-6 w-6"
+              className="h-5 w-5 sm:h-6 sm:w-6"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"

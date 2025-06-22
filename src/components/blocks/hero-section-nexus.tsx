@@ -399,31 +399,22 @@ const InteractiveHero: React.FC = () => {
             background: 'linear-gradient(to bottom, transparent 0%, black 90%), radial-gradient(ellipse at center, transparent 40%, black 95%)'
         }}></div>
 
-        <main className="flex flex-col items-center justify-center pt-20 text-center px-0 relative z-10">
+        <main className="flex flex-col items-center justify-center pt-20 text-center px-4 sm:px-6 lg:px-8 relative z-10">
             <motion.h1
                 variants={headlineVariants}
                 initial="hidden"
                 animate="visible"
-                className="hidden sm:block text-center text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold tracking-tight text-green-accent max-w-5xl lg:max-w-6xl"
+                className="text-center text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold tracking-tight text-green-accent max-w-4xl lg:max-w-6xl"
             >
-                <div className="flex flex-col items-center justify-center w-full">
-                    <div className="flex items-baseline justify-center gap-3 w-full">
-                        <span>We build business</span>
-                        <span>that turn</span>
-                    </div>
-                    <div className="flex items-baseline justify-center gap-2 mt-2 w-full mt-3">
-                        <span>visitors into 
-                        paying customers</span>
-                        
-                    </div>
-                </div>
+                <span className="block">We build business that turn</span>
+                <span className="block">visitors into paying customers</span>
             </motion.h1>
 <br />
             <motion.p
                 variants={subHeadlineVariants}
                 initial="hidden"
                 animate="visible"
-                className="text-base sm:text-lg lg:text-xl text-gray-400 max-w-2xl mx-auto mb-8"
+                className="text-sm sm:text-base lg:text-xl text-gray-400 max-w-2xl mx-auto mb-6 sm:mb-8 px-4"
             >
 High-converting websites designed with strategic copy and seamless development to attract ready-to-buy customers—helping brands worldwide turn visitors into loyal clients and drive growth.            </motion.p>
 
@@ -431,9 +422,9 @@ High-converting websites designed with strategic copy and seamless development t
                 variants={bannerVariants}
                 initial="hidden"
                 animate="visible"
-                className="mb-6"
+                className="mb-4 sm:mb-6"
             >
-                <ShinyText text="✨ Get your MVP built in 2 weeks" className="bg-[#1a1a1a] border border-gray-700 text-[#0CF2A0] px-4 py-1 rounded-full text-xs sm:text-sm font-medium cursor-pointer hover:border-[#0CF2A0]/50 transition-colors" />
+                <ShinyText text="✨ Get your MVP built in 2 weeks" className="bg-[#1a1a1a] border border-gray-700 text-[#0CF2A0] px-3 sm:px-4 py-1 rounded-full text-xs sm:text-sm font-medium cursor-pointer hover:border-[#0CF2A0]/50 transition-colors" />
             </motion.div>
 
             <br />
@@ -441,7 +432,7 @@ High-converting websites designed with strategic copy and seamless development t
                 variants={formVariants}
                 initial="hidden"
                 animate="visible"
-                className="flex flex-col sm:flex-row items-center justify-center gap-2 w-full max-w-md mx-auto mb-3"
+                className="flex flex-col sm:flex-row items-center justify-center gap-3 w-full max-w-md mx-auto mb-3 px-4"
                 onSubmit={(e: FormEvent<HTMLFormElement>) => e.preventDefault()}
             >
                 <input
@@ -449,12 +440,12 @@ High-converting websites designed with strategic copy and seamless development t
                     placeholder="Your work email"
                     required
                     aria-label="Work Email"
-                    className="flex-grow w-full sm:w-auto px-4 py-2 rounded-lg bg-slate-800 border border-gray-700 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-accent focus:border-accent transition-all"
+                    className="flex-grow w-full px-4 py-3 sm:py-2 rounded-lg bg-slate-800 border border-gray-700 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-accent focus:border-accent transition-all text-sm sm:text-base"
                     />
                 <a href="https://cal.com/saurabh-bithive/30min" target="_blank" rel="noopener noreferrer" className="w-full sm:w-auto">
                   <motion.button
                       type="button"
-                      className="w-full sm:w-auto bg-accent text-black px-5 py-2 rounded-lg text-sm font-semibold hover:bg-opacity-90 transition-colors duration-200 whitespace-nowrap shadow-sm hover:shadow-md flex-shrink-0"
+                      className="w-full sm:w-auto bg-accent text-black px-5 py-3 sm:py-2 rounded-lg text-sm font-semibold hover:bg-opacity-90 transition-colors duration-200 whitespace-nowrap shadow-sm hover:shadow-md flex-shrink-0"
                       whileHover={{ scale: 1.03, y: -1 }}
                       whileTap={{ scale: 0.97 }}
                       transition={{ type: 'spring', stiffness: 400, damping: 15 }}
