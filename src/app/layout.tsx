@@ -5,8 +5,13 @@ import { Metadata } from 'next';
 import { Navbar } from '@/components/Navbar';
 
 export const metadata: Metadata = {
-  title: 'Bithive Agency',
+  title: 'Bithive Technology',
   description: 'Your Digital Partner',
+  icons: {
+    icon: '/logos/logo.webp',
+    shortcut: '/logos/logo.webp',
+    apple: '/logos/logo.webp',
+  },
 };
 
 // Add preload tags for Cal.com
