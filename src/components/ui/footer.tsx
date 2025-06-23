@@ -25,7 +25,7 @@ export function Footer() {
 
         <div className="flex items-center space-x-4 sm:space-x-5">
           <Link
-            href="https://instagram.com/vetcha.roopesh"
+            href="https://www.instagram.com/bithive.in"
             className="text-white hover:text-green-accent transition p-1"
             aria-label="Instagram"
           >
